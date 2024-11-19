@@ -4,7 +4,7 @@ from datetime import date
 today = date.today()
 formatted_date = today.strftime("%Y-%m-%d")
 
-from utils.members import members, options
+from my_agent.utils.members import members, options
 
 # for supervisor
 system_prompt = (

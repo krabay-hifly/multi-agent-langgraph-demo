@@ -1,9 +1,9 @@
 from dotenv import load_dotenv
 load_dotenv()
 
-from utils.state import AgentState
-from utils.members import members
-from utils.nodes import supervisor_agent, weather_node, sports_node, marketnews_node, localstatenews_node, responder_node
+from my_agent.utils.state import AgentState
+from my_agent.utils.members import members
+from my_agent.utils.nodes import supervisor_agent, weather_node, sports_node, marketnews_node, localstatenews_node, responder_node
 
 from langgraph.graph import END, StateGraph, START
 

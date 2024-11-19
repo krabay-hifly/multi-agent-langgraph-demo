@@ -1,10 +1,10 @@
 from langchain_core.messages import HumanMessage
 from langgraph.prebuilt import create_react_agent
 
-from utils.classes import routeResponse
-from utils.llms import llm
-from utils.prompts import prompt, agent_promt_template, formatted_date
-from utils.tools import tavily_tool, fake_dummy_tool
+from my_agent.utils.classes import routeResponse
+from my_agent.utils.llms import llm
+from my_agent.utils.prompts import prompt, agent_promt_template, formatted_date
+from my_agent.utils.tools import tavily_tool, fake_dummy_tool
 
 import functools
 
