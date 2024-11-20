@@ -13,10 +13,9 @@ system_prompt = (
     "Your AI team consists of the following AI workers: {members}. "
     "Given the following user request, you decide on the next action to take. "
     "Respond with the worker to act next, the query you're sending it and the reason behind your selection. " 
-    "Each worker will perform the task (run the query you send) and "
-    "respond with their results and status. " 
-    "Once you collected all input to be able to answer the user's inquiry, call the ResponderAgent. "
-    "After calling the ResponderAgent you are finished, respond with FINISH."    
+    "Each worker will perform the task (run the query you send) and respond with their results and status. " 
+    "Once you collected all input to be able to answer the user's inquiry, call the FinalResponderAgent. "
+    "After calling the FinalResponderAgent you are finished, you MUST respond with FINISH."    
 )
 
 prompt = ChatPromptTemplate.from_messages(

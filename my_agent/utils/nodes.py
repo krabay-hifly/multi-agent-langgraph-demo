@@ -10,7 +10,7 @@ import functools
 
 def agent_node(state, agent, name):
 
-    if state['next'] != 'ResponderAgent':
+    if state['next'] != 'FinalResponderAgent':
         state['messages'] = [HumanMessage(content=state['query'])]
 
     result = agent.invoke(state)
@@ -44,6 +44,6 @@ localstatenews_agent = create_react_agent(llm, tools=[tavily_tool], state_modifi
 localstatenews_node = functools.partial(agent_node, agent=localstatenews_agent, name="LocalStateNewsAI")
 
 # Responder
-responder_prompt = agent_promt_template.format(agent_type = 'comprehensive response or report generator Agent', formatted_date = formatted_date)
+responder_prompt = agent_promt_template.format(agent_type = 'final comprehensive response or report generator Agent', formatted_date = formatted_date)
 responder_agent = create_react_agent(llm, tools = [fake_dummy_tool], state_modifier= responder_prompt)
-responder_node = functools.partial(agent_node, agent=responder_agent, name="ResponderAI")
+responder_node = functools.partial(agent_node, agent=responder_agent, name="FinalResponderAI")

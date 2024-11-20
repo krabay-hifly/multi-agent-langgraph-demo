@@ -3,7 +3,7 @@ members = [
     "SportsAgent", 
     "MarketNewsAgent", 
     "LocalStateNewsAgent",
-    "ResponderAgent"
+    "FinalResponderAgent"
     ]
 
 options = ["FINISH"] + members

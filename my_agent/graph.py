@@ -14,7 +14,7 @@ workflow.add_node("WeatherAgent", weather_node)
 workflow.add_node("SportsAgent", sports_node)
 workflow.add_node("MarketNewsAgent", marketnews_node)
 workflow.add_node("LocalStateNewsAgent", localstatenews_node)
-workflow.add_node("ResponderAgent", responder_node)
+workflow.add_node("FinalResponderAgent", responder_node)
 workflow.add_node("supervisor", supervisor_agent)
 
 for member in members:
