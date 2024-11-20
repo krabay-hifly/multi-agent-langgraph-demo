@@ -15,7 +15,7 @@ system_prompt = (
     "Respond with the worker to act next, the query you're sending it and the reason behind your selection. " 
     "Each worker will perform the task (run the query you send) and respond with their results and status. " 
     "Once you collected all input to be able to answer the user's inquiry, call the FinalResponderAgent. "
-    "After calling the FinalResponderAgent you are finished, you MUST respond with FINISH."    
+    "After calling the FinalResponderAgent you MUST respond with FINISH."  
 )
 
 prompt = ChatPromptTemplate.from_messages(
@@ -24,8 +24,9 @@ prompt = ChatPromptTemplate.from_messages(
         MessagesPlaceholder(variable_name="messages"),
         (
             "system",
-            "Given the conversation above, who should act next?"
-            " Or should we FINISH? Select one of: {options}",
+            "Given the conversation above, who should act next? "
+            "Or should we FINISH? Select one of: {options}. "
+            "Remember, always FINISH after FinalResponderAgent.",
         ),
     ]
 ).partial(
