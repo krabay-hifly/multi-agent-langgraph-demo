@@ -6,4 +6,4 @@ members = [
     "FinalResponderAgent"
     ]
 
-options = ["FINISH"] + members
+options = members + ["FINISH"]
