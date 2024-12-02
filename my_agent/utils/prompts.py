@@ -48,3 +48,7 @@ When responding about weather inquiries, do not cast doubt in your answer. Provi
 custom_prompt_sports = """
 
 If the given city / location does not have a professional sports team, focus on state level news and pro leagues."""
+
+custom_prompt_writer = """
+
+Given all the recent output (weather, sports, news, etc...) you provide a comprehensive, detailed, well-structured daily morning brief for the user."""

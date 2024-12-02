@@ -3,7 +3,7 @@ from langgraph.prebuilt import create_react_agent
 
 from my_agent.utils.classes import routeResponse
 from my_agent.utils.llms import llm
-from my_agent.utils.prompts import prompt, agent_promt_template, formatted_date, custom_prompt_sports, custom_prompt_weather
+from my_agent.utils.prompts import prompt, agent_promt_template, formatted_date, custom_prompt_sports, custom_prompt_weather, custom_prompt_writer
 from my_agent.utils.tools import tavily_tool, fake_dummy_tool
 
 import functools
@@ -47,5 +47,6 @@ localstatenews_node = functools.partial(agent_node, agent=localstatenews_agent, 
 
 # Responder
 responder_prompt = agent_promt_template.format(agent_type = 'final comprehensive response or report generator Agent', formatted_date = formatted_date)
+responder_prompt = responder_prompt + custom_prompt_writer
 responder_agent = create_react_agent(llm, tools = [fake_dummy_tool], state_modifier= responder_prompt)
 responder_node = functools.partial(agent_node, agent=responder_agent, name="FinalResponderAI")
