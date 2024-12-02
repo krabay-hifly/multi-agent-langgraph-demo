@@ -3,7 +3,7 @@ from langgraph.prebuilt import create_react_agent
 
 from my_agent.utils.classes import routeResponse
 from my_agent.utils.llms import llm
-from my_agent.utils.prompts import prompt, agent_promt_template, formatted_date
+from my_agent.utils.prompts import prompt, agent_promt_template, formatted_date, custom_prompt_sports, custom_prompt_weather
 from my_agent.utils.tools import tavily_tool, fake_dummy_tool
 
 import functools
@@ -25,11 +25,13 @@ def supervisor_agent(state):
 
 # WeatherAgent
 weather_prompt = agent_promt_template.format(agent_type = 'Weather AI Agent', formatted_date = formatted_date)
+weather_prompt = weather_prompt + custom_prompt_weather
 weather_agent = create_react_agent(llm, tools=[tavily_tool], state_modifier= weather_prompt)
 weather_node = functools.partial(agent_node, agent=weather_agent, name="WeatherAI")
 
 # SportsAgent
 sports_prompt = agent_promt_template.format(agent_type = 'Sports AI Agent', formatted_date = formatted_date)
+sports_prompt = sports_prompt + custom_prompt_sports
 sports_agent = create_react_agent(llm, tools=[tavily_tool], state_modifier= sports_prompt)
 sports_node = functools.partial(agent_node, agent=sports_agent, name="SportsAI")
 

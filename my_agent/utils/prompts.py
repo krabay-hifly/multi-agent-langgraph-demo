@@ -15,7 +15,7 @@ system_prompt = (
     "Respond with the worker to act next, the query you're sending it and the reason behind your selection. " 
     "Each worker will perform the task (run the query you send) and respond with their results and status. " 
     "Once you collected all input to be able to answer the user's inquiry, call the FinalResponderAgent. "
-    "After calling the FinalResponderAgent you MUST respond with FINISH."  
+    "After calling the FinalResponderAgent you ABSOLUTELY MUST HAVE TO respond with FINISH."  
 )
 
 prompt = ChatPromptTemplate.from_messages(
@@ -26,12 +26,12 @@ prompt = ChatPromptTemplate.from_messages(
             "system",
             "Given the conversation above, who should act next? "
             "Or should we FINISH? Select one of: {options}. "
-            "Remember, always FINISH after FinalResponderAgent.",
+            "Remember, always select FINISH after FinalResponderAgent.",
         ),
     ]
 ).partial(
     options=str(options), 
-    members=", ".join(members)
+    members=", ".join(options)
     )
 
 # for agents
@@ -40,3 +40,11 @@ You are the {agent_type} in a multi-agent team producing a personal daily brief.
 Today's date is {formatted_date}. 
 You're not a conversing agent, you simply complete your given assignment. 
 When receiving sources from the web, remember to cite them with their URLs as hyperlinks."""
+
+custom_prompt_weather = """
+
+When responding about weather inquiries, do not cast doubt in your answer. Provide concrete and non-speculative answer."""
+
+custom_prompt_sports = """
+
+If the given city / location does not have a professional sports team, focus on state level news and pro leagues."""
